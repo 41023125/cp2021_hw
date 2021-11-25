@@ -353,72 +353,8 @@ height = 20
 speed = 2
 
 browser.timer.set_interval(game, 10)</pre>
-<p>HW1-2.py</p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document as doc
-from browser import timer
-from browser import html
-import math
-
-# 建立 game-board canvas
-
-canvas = html.CANVAS(width = 300, height = 300)
-canvas.id = "game-board"
-brython_div = doc["brython_div"]
-brython_div &lt;= canvas
-ctx = canvas.getContext("2d")
-px = 0
-py = 50
-width = 20
-height = 20
-speed = 2
-
-# 建立 button
-brython_div &lt;= html.BUTTON("啟動", id="power")
- 
-def game():
-    global px, py, speed
-    ctx.clearRect(px, py, width, height)
-    ctx.fillStyle = "red"
-    if px &lt; canvas.width/2:
-        px += speed
-    else:
-        py -= speed
-    
-    if px &lt; 0 or (px + width) &gt; canvas.width:
-        speed = -speed
-    if py &lt; 0 or (py + height) &gt; canvas.height:
-        speed = -speed
-    
-    ctx.fillRect(px, py, width, height)
- 
- 
-# 將 anim 設為 None
-anim = None
- 
-def launchAnimation(ev):
-    global anim
-    # 初始啟動, anim 為 None
-    if anim is None:
-        # 每 0.1 秒執行一次 draw 函式繪圖
-        anim = timer.set_interval(game, 10)
-        # 初始啟動後, 按鈕文字轉為"暫停"
-        doc['power'].text = '暫停'
-    elif anim == 'hold':
-        # 當 anim 為 'hold' 表示曾經暫停後的啟動, 因此持續以 set_interval() 持續旋轉, 且將 power 文字轉為"暫停"
-        anim = timer.set_interval(game, 10)
-        doc['power'].text = '暫停'
-    else:
-        # 初始啟動後, 使用者再按 power, 此時 anim 非 None 也不是 'hold', 因此會執行 clear_interval() 暫停
-        # 且將 anim 變數設為 'hold', 且 power 文字轉為"繼續"
-        timer.clear_interval(anim)
-        anim = 'hold'
-        doc['power'].text = '繼續'
-
- 
-doc["power"].bind("click", launchAnimation)
-</pre>
-<p></p>
-<h2>Token</h2>
+<p style="text-align: start;">9487</p>
+<p style="text-align: start;"></p><h2>Token</h2>
 <p>當你建立 Github 帳號後就可以利用 Gist 儲存資料或程式碼, 且可以利用 <a href="https://mde.tw/cp2021/content/run.html">https://mde.tw/cp2021/content/run.html</a> 來執行 Brython 程式.</p>
 <p>在 run.html 執行 Brython 程式, 可以使用下列三種方法:</p>
 <ol>
