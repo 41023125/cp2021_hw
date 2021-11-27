@@ -128,7 +128,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='Examples.html'>Examples</a><li><a href='portable_hybrid.html'>portable_hybrid</a><li><a href='run.html'>run</a><li><a href='runsrc.html'>runsrc</a><li><a href='Snake.html'>Snake</a><li><a href='SSH.html'>SSH</a><li><a href='Network.html'>Network</a></li></ul><li class='has-children'><a href='HW1.html'>HW1</a><ul class='dropdown'><li><a href='HW1-1.html'>HW1-1</a><li><a href='HW1-2.html'>HW1-2</a><li><a href='Token.html'>Token</a><li class='has-children'><a href='SSH push.html'>SSH push</a><ul class='dropdown'><li><a href='GitExtensions.html'>GitExtensions</a></li></li></ul></ul><li class='has-children'><a href='HW2.html'>HW2</a><ul class='dropdown'><li><a href='Python.html'>Python</a><li><a href='run1.html'>run1</a><li><a href='run2.html'>run2</a><li><a href='run3.html'>run3</a></li></ul><li><a href='Server.html'>Server</a><li class='has-children'><a href='HW3.html'>HW3</a><ul class='dropdown'><li><a href='HW3-1.html'>HW3-1</a><li><a href='Algorithms.html'>Algorithms</a><li><a href='ML in Brython.html'>ML in Brython</a></li></ul><li><a href='Math.html'>Math</a><li><a href='Final Project.html'>Final Project</a></li>
+                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='Examples.html'>Examples</a><li><a href='portable_hybrid.html'>portable_hybrid</a><li><a href='run.html'>run</a><li><a href='runsrc.html'>runsrc</a><li><a href='Snake.html'>Snake</a><li><a href='SSH.html'>SSH</a><li><a href='Network.html'>Network</a></li></ul><li class='has-children'><a href='HW1.html'>HW1</a><ul class='dropdown'><li><a href='HW1-1.html'>HW1-1</a><li><a href='HW1-2.html'>HW1-2</a><li><a href='Token.html'>Token</a><li class='has-children'><a href='SSH push.html'>SSH push</a><ul class='dropdown'><li><a href='GitExtensions.html'>GitExtensions</a></li></li></ul></ul><li class='has-children'><a href='HW2.html'>HW2</a><ul class='dropdown'><li><a href='Python.html'>Python</a><li><a href='run1.html'>run1</a><li><a href='run2.html'>run2</a><li><a href='run3.html'>run3</a></li></ul><li><a href='Server.html'>Server</a><li class='has-children'><a href='HW3.html'>HW3</a><ul class='dropdown'><li><a href='manual_snake.html'>manual_snake</a><li><a href='snake.html'>snake</a><li><a href='Algorithms.html'>Algorithms</a><li><a href='ML in Brython.html'>ML in Brython</a></li></ul><li><a href='Math.html'>Math</a><li><a href='Final Project.html'>Final Project</a></li>
                       </ul>
                 </nav>
               </div>
@@ -139,7 +139,7 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">runsrc << <a href='runsrc.html'>Previous</a> <a href='SSH.html'>Next</a> >> SSH<br /><h1>Snake</h1>
+    <div id="tipue_search_content">manual_snake << <a href='manual_snake.html'>Previous</a> <a href='Algorithms.html'>Next</a> >> Algorithms<br /><h1>snake</h1>
 <!-- 導入 brython 程式庫 -->
 <script src="./../cmsimde/static/brython.js"></script>
 <script src="./../cmsimde/static/brython_stdlib.js"></script>
@@ -149,102 +149,81 @@ window.onload=function(){
 brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
 }
 </script>
-<p><canvas height="400" id="game-board" width="400"></canvas></p>
-<h4 class="text-center" id="score">Score: 0</h4>
-<p></p>
-<h6 class="text-center" id="high-score">High Score: 0</h6>
-<p></p>
-<div class="text-center"><button class="btn btn-info" id="instructions-btn">Instructions</button></div>
-<script type="text/python">
-from browser import document, html, window
-import random
-
-score = 0
-high_score = 0
-
-px = py = 10
-gs = tc = 20
-ax = ay = 15
-xv = yv = 0
-trail = []
-tail = 5
-
-pre_pause = [0,0]
-paused = False
-
-def game():
-    global px, py, tc, gs, ax, ay, trail, tail, score
-    px += xv
-    py += yv
-    if px < 0:
-        px = tc-1
-    if px > tc-1:
-        px = 0
-    if py < 0:
-        py = tc-1
-    if py > tc-1:
-        py = 0
-    ctx.fillStyle = "black"
-    ctx.fillRect(0, 0, canvas.width, canvas.height)
-    ctx.fillStyle = "lime"
-    for i in range(len(trail)):
-        ctx.fillRect(trail[i][0]*gs, trail[i][1]*gs, gs-2, gs-2)
-        if trail[i][0] == px and trail[i][1] == py:
-            score = score if paused else 0
-            tail = tail if paused else 5
-    trail.insert(0, [px, py])
-    while len(trail) > tail:
-        trail.pop()
-
-    if ax == px and ay == py:
-        tail += 1
-        ax = int(random.random()*tc)
-        ay = int(random.random()*tc)
-        score += 1
-    update_score(score)
-    ctx.fillStyle = "red"
-    ctx.fillRect(ax*gs, ay*gs, gs-2, gs-2)
-
-def update_score(new_score):
-    global high_score
-    document["score"].innerHTML = "Score: " + str(new_score)
-    if new_score > high_score:
-        document["high-score"].innerHTML = "High Score: " + str(new_score)
-        high_score = new_score
-
-def key_push(evt):
-    global xv, yv, pre_pause, paused
-    key = evt.keyCode
-    if key == 37 and not paused:
-        xv = -1
-        yv = 0
-    elif key == 38 and not paused:
-        xv = 0
-        yv = -1
-    elif key == 39 and not paused:
-        xv = 1
-        yv = 0
-    elif key == 40 and not paused:
-        xv = 0
-        yv = 1
-    elif key == 32:
-        temp = [xv, yv]
-        xv = pre_pause[0]
-        yv = pre_pause[1]
-        pre_pause = [*temp]
-        paused = not paused
-
-def show_instructions(evt):
-    window.alert("Use the arrow keys to move and press spacebar to pause the game.")
-
-canvas = document["game-board"]
-ctx = canvas.getContext("2d")
-document.addEventListener("keydown", key_push)
-game_loop = window.setInterval(game, 1000/15)
-instructions_btn = document["instructions-btn"]
-instructions_btn.addEventListener("click", show_instructions)
+<p><!-- 導入 FileSaver 與 filereader --></p>
+<p>
+<script src="./../cmsimde/static/ace/FileSaver.min.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/filereader.js" type="text/javascript"></script>
+</p>
+<p><!-- 導入 ace --></p>
+<p>
+<script src="./../cmsimde/static/ace/ace.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/ext-language_tools.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/mode-python3.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/snippets/python.js" type="text/javascript"></script>
+</p>
+<p><!-- 請注意, 這裡使用 Javascript 將 localStorage["py_src"] 中存在近端瀏覽器的程式碼, 由使用者決定存檔名稱--></p>
+<p>
+<script type="text/javascript">
+function doSave(storage_id, filename){
+    var blob = new Blob([localStorage[storage_id]], {type: "text/plain;charset=utf-8"});
+    filename = document.getElementById(filename).value
+    saveAs(blob, filename+".py");
+}
 </script>
-<br />runsrc << <a href='runsrc.html'>Previous</a> <a href='SSH.html'>Next</a> >> SSH</div>
+</p>
+<p><!-- 印出版次與關鍵字程式 --></p>
+<p>
+<script type="text/python3">
+from browser import document as doc
+import ace
+# 清除畫布
+def clear_bd(ev):
+    bd = doc["brython_div"]
+    bd.clear()
+# Brython 3.3.4 內建的 container 名稱為  'container' 且 turtle 輸出為 svg 必須使用 div 訂定 id
+Ace = ace.Editor(editor_id="kw_editor", console_id="kw_console", container_id="kw__container", storage_id="kw_py_src" )
+# 從 gist 取出程式碼後, 放入 editor 作為 default 程式
+def run():
+    # 利用 get 取下 src 變數值
+    try:
+        url = doc.query["src"]
+    except:
+        url = "https://gist.githubusercontent.com/41023125/1fdd74f7a5c1eddb2acdbac594b52bd2/raw/b0a20044033784719e5455ed396e2b681b6ef1b0/hw3"
+    prog = open(url).read()
+
+    # 將程式載入編輯區
+    Ace.editor.setValue(prog)
+    Ace.editor.scrollToRow(0)
+    Ace.editor.gotoLine(0)
+    # 直接執行程式
+    #ns = {'__name__':'__main__'}
+    #exec(prog, ns)
+    # 按下 run 按鈕
+    Ace.run()
+
+# 執行程式, 顯示輸出結果與清除輸出結果及對應按鈕綁定
+doc['kw_run'].bind('click', Ace.run)
+doc['kw_show_console'].bind('click', Ace.show_console)
+doc['kw_clear_console'].bind('click', Ace.clear_console)
+doc['clear_bd'].bind('click', clear_bd)
+# 呼叫函式執行
+run()
+</script>
+</p>
+<p><!-- 用來顯示程式碼的 editor 區域 --></p>
+<div id="kw_editor" style="width: 600px; height: 300px;"></div>
+<p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
+<!-- 存擋表單開始 --><form><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src', 'kw_filename');" type="submit" value="Save"/></form><!-- 存擋表單結束 -->
+<p></p>
+<!-- 執行與清除按鈕開始 -->
+<p><button id="kw_run">Run</button> <button id="kw_show_console">Output</button> <button id="kw_clear_console">清除輸出區</button><button id="clear_bd">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
+<!-- 執行與清除按鈕結束 -->
+<p></p>
+<!-- 程式執行 ouput 區 -->
+<div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console"></textarea></div>
+<!-- Brython 程式執行的結果, 都以 brython_div 作為切入位置 -->
+<div id="brython_div"></div>
+<p></p><br />manual_snake << <a href='manual_snake.html'>Previous</a> <a href='Algorithms.html'>Next</a> >> Algorithms</div>
         
     <!-- footer -->
       <div class="container">
