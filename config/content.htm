@@ -1469,11 +1469,38 @@ run()
 <p _msthash="170586" _msttexthash="35491638">密碼為<span style="background-color: #000000;">admin</span></p>
 <p _msthash="170586" _msttexthash="35491638">即可修改近端</p>
 <p _msthash="170586" _msttexthash="35491638">修改完畢後點選generate_pages,將頁面改成靜態</p>
-<p _msthash="170586" _msttexthash="35491638">回到cmd(<span>黑色背景</span>)輸入acp "(<span>任取</span>)"</p>
-<p _msthash="170586" _msttexthash="35491638">即可將改版資料推上遠端</p>
-<p _msthash="170586" _msttexthash="35491638"><span style="background-color: #ff0000;">Pages(<a _istranslated="1" href="https://pages.github.com/" style="background-color: #ff0000;">GitHub Pages</a>旨在託管來自 GitHub 儲存庫的個人、組織或項目頁面)(main,root)，Personal access tokensg(馬牌)尚未補充</span></p>
-<h2>Personal access tokens(碼牌)</h2>
-<p>打開github帳號點選右上頭像並點選Settings<br/>點選Developer settings<br/>點選Personal access tokens<br/>點選<a href="https://github.com/settings/tokens/new">Generate new token</a><br/>Note (任意)<br/>打勾repo(第一個)<br/>點選最下面的Generate token<br/>複製產生出來的token<br/>打開可攜系統<br/>打開要設Personal access tokens的資料夾<br/>點開.git(要開隱藏項目才看的到)<br/>將裡面的congif拉到SciTE(球球)<br/>將複製的字串貼在github.com的前面再加上@並存檔(CTRL+S)<br/>這樣Personal access tokens就設定完成</p><h1>Final Project</h1>
+<p _msthash="170586" _msttexthash="35491638" style="text-align: left;"></p>
+<p _msthash="170586" _msttexthash="35491638" style="text-align: left;">開另一個cmd(黑色頁面)</p>
+<p _msthash="170586" _msttexthash="35491638" style="text-align: left;">輸入cd tmp\cp2021</p>
+<p _msthash="170586" _msttexthash="35491638" style="text-align: left;">輸入git config --global user.email "(Your gmail)"</p>
+<p _msthash="170586" _msttexthash="35491638" style="text-align: left;">輸入git config --global user.name "(Your Name)"</p>
+<p _msthash="170586" _msttexthash="35491638" style="text-align: left;">並設定完<a href="https://41023125.github.io/cp2021_hw/content/Personal%20access%20tokens(%E7%A2%BC%E7%89%8C).html">Personal access tokensg</a></p>
+<p _msthash="170586" _msttexthash="35491638" style="text-align: left;">輸入acp "(任意)"</p>
+<p _msthash="170586" _msttexthash="35491638" style="text-align: left;">到github倉儲下的<a aria-current="page" class="UnderlineNav-item hx_underlinenav-item no-wrap js-responsive-underlinenav-item js-selected-navigation-item selected" data-ga-click="Repository, Navigation click, Settings tab" data-pjax="#repo-content-pjax-container" data-selected-links="repo_settings repo_branch_settings collaborators hooks integration_installations repo_keys_settings issue_template_editor secrets_settings security_analysis key_links_settings repo_actions_settings notifications repository_actions_settings_runners repository_environments interaction_limits repository_actions_settings_general repository_actions_settings_add_new_runner repo_pages_settings /41023125/cp2021_hw/settings" data-tab-item="i8settings-tab" data-view-component="true" href="https://github.com/41023125/cp2021_hw/settings" id="settings-tab"><span data-content="Settings">Settings</span></a></p>
+<p _msthash="170586" _msttexthash="35491638" style="text-align: left;">並點選<span>Pages</span></p>
+<p _msthash="170586" _msttexthash="35491638" style="text-align: left;">將Source<strong>改成</strong>main並Save</p>
+<p _msthash="170586" _msttexthash="35491638">即可將改版資料推上遠端</p><h2>Personal access tokens(碼牌)</h2>
+<p>打開github帳號點選右上頭像並點選Settings<br/>點選Developer settings<br/>點選Personal access tokens<br/>點選<a href="https://github.com/settings/tokens/new">Generate new token</a><br/>Note (任意)<br/>打勾repo(第一個)<br/>點選最下面的Generate token<br/>複製產生出來的token<br/>打開可攜系統<br/>打開要設Personal access tokens的資料夾<br/>點開.git(要開隱藏項目才看的到)<br/>將裡面的congif拉到SciTE(球球)<br/>將複製的字串貼在github.com的前面再加上@並存檔(CTRL+S)<br/>這樣Personal access tokens就設定完成</p>
+<h2>建立w11_1a倉儲</h2>
+<p>在Github帳號下點擊<span> </span><span class="dropdown-caret"></span><slot id="details-content" name="user-agent-default-slot"><details-menu class="dropdown-menu dropdown-menu-sw" role="menu"><a class="dropdown-item" data-ga-click="Header, create new repository" href="https://github.com/new" role="menuitem">New repository</a></details-menu></slot></p>
+<p><span>Repository name設為w11_1a</span></p>
+<p><span>點下Create repository</span></p>
+<p>打開cmd(黑色頁面)</p>
+<p>輸入md w11_1a</p>
+<p>輸入cd w11_1a</p>
+<p><span>輸入git config --global init.defaultBranch main(利用 git init 建立的倉儲都以 main 為主要分支, 可以將設定寫入 .gitconfig)</span></p>
+<p><span>之後便照網頁顯示的輸入</span></p>
+<pre class="copyable-terminal-content f5"><span class="user-select-contain">echo "# w11_1a" &gt;&gt; README.md</span>
+<span class="user-select-contain">git init</span>
+<span class="user-select-contain">git add README.md</span>
+<span class="user-select-contain">git commit -m "first commit"</span>
+<span class="user-select-contain">git branch -M main</span>
+<span class="user-select-contain">git remote add origin <span data-targets="git-clone-help.helpTexts">https://github.com/41023125/5.git</span></span>
+<span class="user-select-contain mb-0">git push -u origin main<br/><br/><br/></span></pre>
+<pre class="copyable-terminal-content f5"><span class="user-select-contain mb-0">git push -u origin main之前請先設好SSH或<a href="https://41023125.github.io/cp2021_hw/content/Personal%20access%20tokens(%E7%A2%BC%E7%89%8C).html">Personal access tokens(碼牌)<br/></a><span>輸入git submodule add https://github.com/mdecourse/cmsimde.git cmsimde<br/>當日筆記<a href="https://github.com/mdecourse/cp2021_hw/blob/main/downloads/w11notes.txt">cp2021_hw/w11notes.txt at main · mdecourse/cp2021_hw (github.com)</a><br/></span><br/><a href="https://41023125.github.io/cp2021_hw/content/Personal%20access%20tokens(%E7%A2%BC%E7%89%8C).html"><br/></a></span></pre>
+<pre class="copyable-terminal-content f5" id="empty-setup-new-repo-echo"><span class="user-select-contain mb-0"> </span></pre>
+<pre class="copyable-terminal-content f5" id="empty-setup-new-repo-echo"><span class="user-select-contain mb-0"><br/><br/></span></pre>
+<p><span></span></p><h1>Final Project</h1>
 <p>Final Project 佔學期成績 30%</p>
 <p><span style="background-color: #ffff99;">Final Project 必須在 2022.01.05 22:00 之前完成</span>.</p>
 <p><a href="https://github.com/mdecourse/cp2021/discussions/11">Final Project 具體項目成果回報區</a>將於 2021.11.09 開啟, 於 <span style="background-color: #ff99cc;">2022.01.05 22:00 關閉</span></p>
