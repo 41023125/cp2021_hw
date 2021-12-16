@@ -128,7 +128,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='Examples.html'>Examples</a><li><a href='portable_hybrid.html'>portable_hybrid</a><li><a href='run.html'>run</a><li><a href='runsrc.html'>runsrc</a><li><a href='SSH.html'>SSH</a><li><a href='Network.html'>Network</a></li></ul><li class='has-children'><a href='Exam.html'>Exam</a><ul class='dropdown'><li><a href='W13.html'>W13</a></li></ul><li class='has-children'><a href='HW1.html'>HW1</a><ul class='dropdown'><li><a href='HW1-1.html'>HW1-1</a><li><a href='HW1-2.html'>HW1-2</a><li><a href='Token.html'>Token</a><li class='has-children'><a href='SSH push.html'>SSH push</a><ul class='dropdown'><li><a href='GitExtensions.html'>GitExtensions</a></li></li></ul></ul><li class='has-children'><a href='HW2.html'>HW2</a><ul class='dropdown'><li><a href='Python.html'>Python</a><li><a href='run1.html'>run1</a><li><a href='run2.html'>run2</a><li><a href='run3.html'>run3</a></li></ul><li><a href='Server.html'>Server</a><li class='has-children'><a href='HW3.html'>HW3</a><ul class='dropdown'><li><a href='manual_snake.html'>manual_snake</a><li><a href='Snake.html'>Snake</a><li><a href='Algorithms.html'>Algorithms</a><li><a href='ML in Brython.html'>ML in Brython</a></li></ul><li class='has-children'><a href='notes.html'>notes</a><ul class='dropdown'><li><a href='建立倉儲.html'>建立倉儲</a><li><a href='Personal access tokens(碼牌).html'>Personal access tokens(碼牌)</a></li></ul><li><a href='Final Project.html'>Final Project</a></li>
+                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='Examples.html'>Examples</a><li><a href='portable_hybrid.html'>portable_hybrid</a><li><a href='run.html'>run</a><li><a href='runsrc.html'>runsrc</a><li><a href='SSH.html'>SSH</a><li><a href='Network.html'>Network</a></li></ul><li class='has-children'><a href='Exam.html'>Exam</a><ul class='dropdown'><li><a href='w13.html'>w13</a></li></ul><li class='has-children'><a href='HW1.html'>HW1</a><ul class='dropdown'><li><a href='HW1-1.html'>HW1-1</a><li><a href='HW1-2.html'>HW1-2</a><li><a href='Token.html'>Token</a><li class='has-children'><a href='SSH push.html'>SSH push</a><ul class='dropdown'><li><a href='GitExtensions.html'>GitExtensions</a></li></li></ul></ul><li class='has-children'><a href='HW2.html'>HW2</a><ul class='dropdown'><li><a href='Python.html'>Python</a><li><a href='run1.html'>run1</a><li><a href='run2.html'>run2</a><li><a href='run3.html'>run3</a></li></ul><li><a href='Server.html'>Server</a><li class='has-children'><a href='HW3.html'>HW3</a><ul class='dropdown'><li><a href='manual_snake.html'>manual_snake</a><li><a href='Snake.html'>Snake</a><li><a href='Algorithms.html'>Algorithms</a><li><a href='ML in Brython.html'>ML in Brython</a></li></ul><li class='has-children'><a href='notes.html'>notes</a><ul class='dropdown'><li><a href='建立倉儲.html'>建立倉儲</a><li><a href='Personal access tokens(碼牌).html'>Personal access tokens(碼牌)</a></li></ul><li><a href='Final Project.html'>Final Project</a></li>
                       </ul>
                 </nav>
               </div>
@@ -139,7 +139,9 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Exam << <a href='Exam.html'>Previous</a> <a href='HW1.html'>Next</a> >> HW1<br /><h1>W13</h1>
+    <div id="tipue_search_content">Exam << <a href='Exam.html'>Previous</a> <a href='HW1.html'>Next</a> >> HW1<br /><h1>w13</h1>
+<p></p>
+<p><button id="add1to100">列出 10 個座標</button></p>
 <p></p>
 <!-- 導入 brython 程式庫 -->
 <script src="./../cmsimde/static/brython.js"></script>
@@ -172,58 +174,94 @@ function doSave(storage_id, filename){
 }
 </script>
 </p>
-<p><!-- 印出版次與關鍵字程式 --></p>
+<!-- 內建程式 1 ####################################### 內建程式 1 開始-->
 <p>
 <script type="text/python3">
 from browser import document as doc
 import ace
 # 清除畫布
-def clear_bd(ev):
-    bd = doc["brython_div"]
+def clear_bd1(ev):
+    bd = doc["brython_div1"]
     bd.clear()
-# Brython 3.3.4 內建的 container 名稱為  'container' 且 turtle 輸出為 svg 必須使用 div 訂定 id
-Ace = ace.Editor(editor_id="kw_editor", console_id="kw_console", container_id="kw__container", storage_id="kw_py_src" )
+Ace1 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
 # 從 gist 取出程式碼後, 放入 editor 作為 default 程式
-def run():
+def run1():
     # 利用 get 取下 src 變數值
     try:
         url = doc.query["src"]
     except:
-        url = "https://gist.githubusercontent.com/41023125/df56e6bee91ebe39d7dcd45638e26cbc/raw/dbdee8804454872e7f909d6ea4d67b53fceca86e/w13%25E6%25B8%25AC%25E9%25A9%2597"
+        url = "https://gist.githubusercontent.com/mdecourse/0229a8a017091476a79700b8a190f185/raw/c3a6deaf717f8f2739a4b1392a5ab10936e9693a/from_1_add_to_10_1.py"
     prog = open(url).read()
 
     # 將程式載入編輯區
-    Ace.editor.setValue(prog)
-    Ace.editor.scrollToRow(0)
-    Ace.editor.gotoLine(0)
+    Ace1.editor.setValue(prog)
+    Ace1.editor.scrollToRow(0)
+    Ace1.editor.gotoLine(0)
     # 直接執行程式
     #ns = {'__name__':'__main__'}
     #exec(prog, ns)
     # 按下 run 按鈕
-    Ace.run()
+    Ace1.run()
 
 # 執行程式, 顯示輸出結果與清除輸出結果及對應按鈕綁定
-doc['kw_run'].bind('click', Ace.run)
-doc['kw_show_console'].bind('click', Ace.show_console)
-doc['kw_clear_console'].bind('click', Ace.clear_console)
-doc['clear_bd'].bind('click', clear_bd)
+doc['kw_run1'].bind('click', Ace1.run)
+doc['kw_show_console1'].bind('click', Ace1.show_console)
+doc['kw_clear_console1'].bind('click', Ace1.clear_console)
+doc['clear_bd1'].bind('click', clear_bd1)
 # 呼叫函式執行
-run()
+run1()
 </script>
 </p>
+<!-- 內建程式 1 ####################################### 內建程式 1 結束-->
+<p></p>
+<!-- button 程式 1 ####################################### button 程式 1 開始-->
+<p><!-- add 1 to 100 開始 -->
+<script type="text/python3">
+from browser import document as doc
+import ace
+
+# 清除畫布
+def clear_bd1(ev):
+    bd = doc["brython_div1"]
+    bd.clear()
+
+# 利用 ace 中的 Editor 建立 Ace 物件, 其中的輸入變數分別對應到頁面中的編輯區物件
+Ace2 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
+
+add1to100_url = "https://gist.githubusercontent.com/41023125/df56e6bee91ebe39d7dcd45638e26cbc/raw/ef73b7a2125a32cd5bce92da8e6311d4748b8e32/w13%25E6%25B8%25AC%25E9%25A9%2597"
+
+# 從 gist 取得程式碼
+add_src = open(add1to100_url).read()
+def add(ev):
+    Ace2.editor.setValue(add_src)
+    Ace2.editor.scrollToRow(0)
+    Ace2.editor.gotoLine(0)
+    Ace2.run()
+# id 為 "add1to100" 的按鈕點按時, 執行 add 方法
+doc["add1to100"].bind('click', add)
+</script>
+</p>
+<p><!-- add 1 to 100 結束--></p>
+<!-- editor1 開始 -->
 <p><!-- 用來顯示程式碼的 editor 區域 --></p>
-<div id="kw_editor" style="width: 600px; height: 300px;"></div>
+<div id="kw_editor1" style="width: 600px; height: 300px;"></div>
 <p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
-<!-- 存擋表單開始 --><form><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src', 'kw_filename');" type="submit" value="Save"/></form><!-- 存擋表單結束 -->
+<p><!-- 存擋表單開始 --></p>
+<form><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src1', 'kw_filename1');" type="submit" value="Save"/></form>
+<p><!-- 存擋表單結束 --></p>
 <p></p>
-<!-- 執行與清除按鈕開始 -->
-<p><button id="kw_run">Run</button> <button id="kw_show_console">Output</button> <button id="kw_clear_console">清除輸出區</button><button id="clear_bd">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
-<!-- 執行與清除按鈕結束 -->
+<p><!-- 執行與清除按鈕開始 --></p>
+<p><button id="kw_run1">Run</button> <button id="kw_show_console1">Output</button> <button id="kw_clear_console1">清除輸出區</button><button id="clear_bd1">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
+<p><!-- 執行與清除按鈕結束 --></p>
 <p></p>
-<!-- 程式執行 ouput 區 -->
-<div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console"></textarea></div>
-<!-- Brython 程式執行的結果, 都以 brython_div 作為切入位置 -->
-<div id="brython_div"></div><br />Exam << <a href='Exam.html'>Previous</a> <a href='HW1.html'>Next</a> >> HW1</div>
+<p><!-- 程式執行 ouput 區 --></p>
+<div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console1"></textarea></div>
+<p><!-- Brython 程式執行的結果, 都以 brython_div 作為切入位置 --></p>
+<div id="brython_div1"></div>
+<!-- editor1 結束 --><hr/><!-- button 程式 1 ####################################### button 程式 1 結束-->
+<p></p>
+<!-- button 程式 2 ####################################### button 程式 2 開始-->
+<p></p><br />Exam << <a href='Exam.html'>Previous</a> <a href='HW1.html'>Next</a> >> HW1</div>
         
     <!-- footer -->
       <div class="container">
