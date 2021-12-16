@@ -360,9 +360,9 @@ run()
 <p style="padding-left: 30px;">相關開放電子書: <a href="http://intronetworks.cs.luc.edu/current1/html/">http://intronetworks.cs.luc.edu/current1/html/</a></p>
 <p style="padding-left: 60px;">其他格式: <a href="https://open.umn.edu/opentextbooks/textbooks/an-introduction-to-computer-networks">https://open.umn.edu/opentextbooks/textbooks/an-introduction-to-computer-networks</a></p>
 <h1>Exam</h1>
-<h2>w13</h2>
+<h2>W13</h2>
 <p></p>
-<p><button id="add1to100">列出 10 個座標</button></p>
+<p><button id="add1to100">列出10座標</button></p>
 <p></p>
 <!-- 導入 brython 程式庫 -->
 <script src="/static/brython.js"></script>
@@ -406,7 +406,23 @@ def clear_bd1(ev):
     bd.clear()
 Ace1 = ace.Editor(editor_id="kw_editor1", console_id="kw_console1", container_id="kw__container1", storage_id="kw_py_src1" )
 # 從 gist 取出程式碼後, 放入 editor 作為 default 程式
+def run1():
+    # 利用 get 取下 src 變數值
+    try:
+        url = doc.query["src"]
+    except:
+        url = "https://gist.githubusercontent.com/mdecourse/0229a8a017091476a79700b8a190f185/raw/c3a6deaf717f8f2739a4b1392a5ab10936e9693a/from_1_add_to_10_1.py"
+    prog = open(url).read()
 
+    # 將程式載入編輯區
+    Ace1.editor.setValue(prog)
+    Ace1.editor.scrollToRow(0)
+    Ace1.editor.gotoLine(0)
+    # 直接執行程式
+    #ns = {'__name__':'__main__'}
+    #exec(prog, ns)
+    # 按下 run 按鈕
+    Ace1.run()
 
 # 執行程式, 顯示輸出結果與清除輸出結果及對應按鈕綁定
 doc['kw_run1'].bind('click', Ace1.run)
@@ -463,10 +479,8 @@ doc["add1to100"].bind('click', add)
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console1"></textarea></div>
 <p><!-- Brython 程式執行的結果, 都以 brython_div 作為切入位置 --></p>
 <div id="brython_div1"></div>
-<!-- editor1 結束 --><hr/><!-- button 程式 1 ####################################### button 程式 1 結束-->
-<p></p>
-<!-- button 程式 2 ####################################### button 程式 2 開始-->
-<p></p><h1>HW1</h1>
+<!-- editor1 結束 -->
+<p style="padding-left: 30px;"></p><h1>HW1</h1>
 <p>HW1 - 網際動畫與 touch typing 佔學期成績 20%.</p>
 <p>何謂 Secure Shell?</p>
 <p>HTTPS: <a href="https://en.wikipedia.org/wiki/HTTPS">https://en.wikipedia.org/wiki/HTTPS</a></p>
