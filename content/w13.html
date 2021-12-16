@@ -204,18 +204,18 @@ def run():
     # 按下 run 按鈕
     Ace.run()
 
-check_str_url = "https://gist.githubusercontent.com/41023125/df56e6bee91ebe39d7dcd45638e26cbc/raw/ef73b7a2125a32cd5bce92da8e6311d4748b8e32/w13%25E6%25B8%25AC%25E9%25A9%2597"
+check_strq_url = "https://gist.githubusercontent.com/41023125/df56e6bee91ebe39d7dcd45638e26cbc/raw/ef73b7a2125a32cd5bce92da8e6311d4748b8e32/w13%25E6%25B8%25AC%25E9%25A9%2597"
 # 從 gist 取得程式碼
-check_src = open(check_str_url).read()
+check_srcq = open(check_strq_url).read()
 
-def check_input(ev):
-    Ace.editor.setValue(check_src)
+def checkq_input(ev):
+    Ace.editor.setValue(check_srcq)
     Ace.editor.scrollToRow(0)
     Ace.editor.gotoLine(0)
     #Ace.run()
 
-# id 為 "check_input" 的按鈕點按時, 執行 check_input 方法
-doc["add1to10"].bind('click', check_input)
+# id 為 "add1to10" 的按鈕點按時, 執行 check_input 方法
+doc["add1to10"].bind('click', checkq_input)
 
 chec_qwe_url = "https://gist.githubusercontent.com/41023125/fbaa4f6f9943f1817179f20432ea792d/raw/33de74fbdab63d86350ac39ae9395272f7d6572e/w13-1%25E5%25BB%25B6%25E4%25BC%25B8"
 # 從 gist 取得程式碼
