@@ -139,8 +139,8 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">run2 << <a href='run2.html'>Previous</a> <a href='Server.html'>Next</a> >> Server<br /><h1>run3</h1>
-<p>第三種在網頁中執行 Brython 的方法, 是直接將程式寫在 html 網頁中執行. 本頁面的 html 程式碼為 <a href="./../downloads/run3.txt">run3.txt</a>.</p>
+    <div id="tipue_search_content">Exam << <a href='Exam.html'>Previous</a> <a href='HW1.html'>Next</a> >> HW1<br /><h1>W13</h1>
+<p></p>
 <!-- 導入 brython 程式庫 -->
 <script src="./../cmsimde/static/brython.js"></script>
 <script src="./../cmsimde/static/brython_stdlib.js"></script>
@@ -150,81 +150,80 @@ window.onload=function(){
 brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
 }
 </script>
-<script type="text/python3">
-# Spur Gear in Cango and gearUtils-09.js
-from browser import document as doc
-from browser import html
-from browser import window
-import browser.timer
-import math
-# 利用 html 建立一個 CANVAS 標註物件, 與變數 canvas 對應
-canvas = html.CANVAS(width = 600, height = 400)
-# 將 canvas 標註的 id 設為 "cango_gear"
-canvas.id = "cango_gear"
-# 將 document 中 id 為 "brython_div" 的標註
-# 設為與 brython_div 變數對應
-brython_div = doc["brython_div"]
-# 將 canvas 標註放入 brython_div 所在位置
-brython_div <= canvas
-# 將頁面中 id 為 cango_gear 的 CANVAS 設為與 canvas 對應
-canvas = doc["cango_gear"]
-# convert Javascript objects to Brython variables
-cango = window.Cango.new
-circle = window.circle.new
-shape = window.Shape.new
-path = window.Path.new
-creategeartooth = window.createGearTooth.new
-svgsegs = window.SVGsegs.new
-# 經由 Cango 轉換成 Brython 的 cango
-# 指定將圖畫在 id="cango_gear" 的 canvas 上
-cgo = cango("cango_gear")
-# 以下將要使用 gearUtils-09.js 畫出正齒輪外形
-# 假設齒數為 25
-num = 25
-# 利用 gearUtils-09 產生單一齒輪外形資料
-tooth = creategeartooth(10, num, 20)
-# 在 Cango 中, 只有 SVG 才能 rotate, appendPath 或 joinPath
-# 將齒輪外形轉為 SVG segment
-toothSVG = svgsegs(tooth)
-path1 = path(toothSVG.scale(1), {"degs": 45, "x": 100, "y": 100, "strokeColor": "#606060"})
-#print(path1)
-# SVG list
-circle = circle(50)
-#print(circle)
-circleSVG = svgsegs(circle)
-#print(circleSVG)
-# 若將 circleSVG 轉為 Cango path, 則可以用 cgo.render()
-#circlePath = path(circleSVG, {"x": 100, "y": 100, "strokeColor": "#606060"})
-#cgo.render(circlePath)
-# svgsegs 資料可以 joinPath 或 appendPath
-# joinPath 按照頭尾順序銜接
-# appendPath 則無順序銜接
-# 從 toothSVG 複製出單齒 SVG 資料
-one = toothSVG.dup()
-# 以照齒數, 逐一複製並附加在原單齒資料中
-# 第一齒的資料已經在 toothSVG 中, 因此重複迴圈從 1 開始
-for i in range(1, num):
-    newSVG = one.rotate(360*i/num)
-    toothSVG = toothSVG.appendPath(newSVG)
-# 將 SVG 轉為 path 資料
-#gear = path(toothSVG, {"x": 150, "y": 150, "strokeColor": "#606060"})
-# path 資料可以透過 cgo.render()顯示繪圖物件
-#cgo.render(gear)
-# 當 circle 接外齒使用 appendPath
-toothSVG = toothSVG.appendPath(circleSVG)
-#print(toothSVG)
-spurPath = path(toothSVG, {"x": 150, "y": 150, "strokeColor": "#606060"})
-cgo.render(spurPath)
+<p><!-- 導入 FileSaver 與 filereader --></p>
+<p>
+<script src="./../cmsimde/static/ace/FileSaver.min.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/filereader.js" type="text/javascript"></script>
+</p>
+<p><!-- 導入 ace --></p>
+<p>
+<script src="./../cmsimde/static/ace/ace.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/ext-language_tools.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/mode-python3.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/snippets/python.js" type="text/javascript"></script>
+</p>
+<p><!-- 請注意, 這裡使用 Javascript 將 localStorage["py_src"] 中存在近端瀏覽器的程式碼, 由使用者決定存檔名稱--></p>
+<p>
+<script type="text/javascript">
+function doSave(storage_id, filename){
+    var blob = new Blob([localStorage[storage_id]], {type: "text/plain;charset=utf-8"});
+    filename = document.getElementById(filename).value
+    saveAs(blob, filename+".py");
+}
 </script>
+</p>
+<p><!-- 印出版次與關鍵字程式 --></p>
+<p>
+<script type="text/python3">
+from browser import document as doc
+import ace
+# 清除畫布
+def clear_bd(ev):
+    bd = doc["brython_div"]
+    bd.clear()
+# Brython 3.3.4 內建的 container 名稱為  'container' 且 turtle 輸出為 svg 必須使用 div 訂定 id
+Ace = ace.Editor(editor_id="kw_editor", console_id="kw_console", container_id="kw__container", storage_id="kw_py_src" )
+# 從 gist 取出程式碼後, 放入 editor 作為 default 程式
+def run():
+    # 利用 get 取下 src 變數值
+    try:
+        url = doc.query["src"]
+    except:
+        url = "https://gist.githubusercontent.com/41023125/df56e6bee91ebe39d7dcd45638e26cbc/raw/dbdee8804454872e7f909d6ea4d67b53fceca86e/w13%25E6%25B8%25AC%25E9%25A9%2597"
+    prog = open(url).read()
+
+    # 將程式載入編輯區
+    Ace.editor.setValue(prog)
+    Ace.editor.scrollToRow(0)
+    Ace.editor.gotoLine(0)
+    # 直接執行程式
+    #ns = {'__name__':'__main__'}
+    #exec(prog, ns)
+    # 按下 run 按鈕
+    Ace.run()
+
+# 執行程式, 顯示輸出結果與清除輸出結果及對應按鈕綁定
+doc['kw_run'].bind('click', Ace.run)
+doc['kw_show_console'].bind('click', Ace.show_console)
+doc['kw_clear_console'].bind('click', Ace.clear_console)
+doc['clear_bd'].bind('click', clear_bd)
+# 呼叫函式執行
+run()
+</script>
+</p>
+<p><!-- 用來顯示程式碼的 editor 區域 --></p>
+<div id="kw_editor" style="width: 600px; height: 300px;"></div>
+<p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
+<!-- 存擋表單開始 --><form><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src', 'kw_filename');" type="submit" value="Save"/></form><!-- 存擋表單結束 -->
+<p></p>
+<!-- 執行與清除按鈕開始 -->
+<p><button id="kw_run">Run</button> <button id="kw_show_console">Output</button> <button id="kw_clear_console">清除輸出區</button><button id="clear_bd">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
+<!-- 執行與清除按鈕結束 -->
+<p></p>
+<!-- 程式執行 ouput 區 -->
+<div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console"></textarea></div>
 <!-- Brython 程式執行的結果, 都以 brython_div 作為切入位置 -->
-<div id="brython_div"></div>
-<!-- 導入 gearUtils-0.9.js Cango 齒輪繪圖程式庫 -->
-<script src="https://mde.tw/cp2021/cmsimde/static/Cango-24v03-min.js"></script>
-<script src="https://mde.tw/cp2021/cmsimde/static/gearUtils-09.js"></script>
-<script src="https://mde.tw/cp2021/cmsimde/static/SVGpathUtils-6v03-min.js"></script>
-<script src="https://mde.tw/cp2021/cmsimde/static/sylvester.js"></script>
-<script src="https://mde.tw/cp2021/cmsimde/static/PrairieDraw.js"></script>
-<br />run2 << <a href='run2.html'>Previous</a> <a href='Server.html'>Next</a> >> Server</div>
+<div id="brython_div"></div><br />Exam << <a href='Exam.html'>Previous</a> <a href='HW1.html'>Next</a> >> HW1</div>
         
     <!-- footer -->
       <div class="container">
