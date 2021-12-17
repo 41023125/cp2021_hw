@@ -359,10 +359,10 @@ run()
 <p style="padding-left: 30px;">相關開放電子書: <a href="http://intronetworks.cs.luc.edu/current1/html/">http://intronetworks.cs.luc.edu/current1/html/</a></p>
 <p style="padding-left: 60px;">其他格式: <a href="https://open.umn.edu/opentextbooks/textbooks/an-introduction-to-computer-networks">https://open.umn.edu/opentextbooks/textbooks/an-introduction-to-computer-networks</a></p>
 <h1>Exam</h1>
-<h2>W13</h2>
+<h2>w13</h2>
 <p></p>
 <p></p>
-<p><button id="add1to10">列出10個座標</button> <button id="asd">在方格上標出10個座標</button></p>
+<p><button id="add1to10">列出10個座標</button> <button id="asd">在方格上標出10個座標</button> <button id="zxc">方塊隨機出現</button></p>
 <!-- 導入 brython 程式庫 -->
 <script src="/static/brython.js"></script>
 <script src="/static/brython_stdlib.js"></script>
@@ -450,6 +450,18 @@ def chec_inp(ev):
 # id 為 "asd" 的按鈕點按時, 執行 chec_inp 方法
 doc["asd"].bind('click', chec_inp)
 
+zxc_url = "https://gist.githubusercontent.com/41023125/2394d5b1b40ca7de736eeebcf079dea6/raw/af43af7fee2e0968262df8f7be59ce7ec1d8552e/w13-1%25E5%25BB%25B6%25E4%25BC%25B8"
+# 從 gist 取得程式碼
+check_zxc= open(asd_url).read()
+
+def zxc_input(ev):
+    Ace.editor.setValue(check_zxc)
+    Ace.editor.scrollToRow(0)
+    Ace.editor.gotoLine(0)
+    #Ace.run()
+
+# id 為 "zxc" 的按鈕點按時, 執行 zxc_input 方法
+doc["zxc"].bind('click', zxc_input)
 
 # 執行程式, 顯示輸出結果與清除輸出結果及對應按鈕綁定
 doc['kw_run'].bind('click', Ace.run)
