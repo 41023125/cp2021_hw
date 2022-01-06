@@ -271,6 +271,26 @@ selfgame = beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_p
 document["selfgame"].bind("click",selfgame.prog)
 </script>
 </p>
+<p>
+<script type="text/python3">
+import beditor
+from browser import document
+url = "https://gist.githubusercontent.com/41023125/0ea70a5f5ba83f806e102d91f4e14a7c/raw/3ecf01d5caba40b7e52094a5663a263110d8f3ba/final1"
+src = open(url).read()
+final1 = beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
+document["final1"].bind("click",final1.prog)
+</script>
+</p>
+<p>
+<script type="text/python3">
+import beditor
+from browser import document
+url = "https://gist.githubusercontent.com/41023125/0495389a86d42dc904bcbf671f757549/raw/c305b270a85c460a33d23fc382b22a315ae9fafe/final2"
+src = open(url).read()
+final2 = beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
+document["final2"].bind("click",final2.prog)
+</script>
+</p>
 <p><!-- 用來顯示程式碼的 editor 區域 --></p>
 <div id="kw_editor" style="width: 600px; height: 300px;"></div>
 <p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
@@ -278,16 +298,16 @@ document["selfgame"].bind("click",selfgame.prog)
 <p></p>
 <!-- 執行與清除按鈕開始 -->
 <p><button id="kw_run">Run</button> <button id="kw_show_console">Output</button> <button id="kw_clear_console">清除輸出區</button><button id="clear_bd">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
-<p><button id="add1to10">列出10個座標</button> <button id="asd">在方格上標出10個座標</button> <button id="zxc">方塊隨機出現</button></p>
-<p><button id="w13">snake</button></p>
+<p><button id="add1to10">列出10個座標</button> <button id="asd">在方格上標出10個座標</button> <button id="zxc">方塊隨機出現</button> <button id="w13">snake</button></p>
 <p><button id="selfgame">戰機遊戲</button></p>
+<p><button id="final1">final1</button> <button id="final2">final2</button></p>
 <!-- 執行與清除按鈕結束 -->
 <p></p>
 <!-- 程式執行 ouput 區 -->
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console"></textarea></div>
 <!-- Brython 程式執行的結果, 都以 brython_div 作為切入位置 -->
 <div id="brython_div"></div>
-<p></p><br />notes << <a href='notes.html'>Previous</a> <a href='建立倉儲.html'>Next</a> >> 建立倉儲</div>
+<p><a href="https://www.youtube.com/playlist?list=PLgrxSD1DX5E3HRzkN55oyZVaTvB36EbZV">final製作全過程 - YouTube</a></p><br />notes << <a href='notes.html'>Previous</a> <a href='建立倉儲.html'>Next</a> >> 建立倉儲</div>
         
     <!-- footer -->
       <div class="container">

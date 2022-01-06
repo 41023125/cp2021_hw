@@ -1663,10 +1663,30 @@ document["w13"].bind("click", w13.prog)
 <script type="text/python3">
 import beditor
 from browser import document
-url = "https://gist.githubusercontent.com/41023125/1fdd74f7a5c1eddb2acdbac594b52bd2/raw/5abc9815e3d49e2a152499ac9e88ad945a5371f7/hw3"
+url = "https://gist.githubusercontent.com/41023125/593b353c7d2c549c6d45a0f3e908dd3b/raw/31b3bea7e9364b612ca3e358bb7ed26ac14c40db/%25E8%2587%25AA%25E8%25A3%25BD%25E5%25B0%2584%25E6%2593%258A%25E9%2581%258A%25E6%2588%25B2"
 src = open(url).read()
 selfgame = beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
 document["selfgame"].bind("click",selfgame.prog)
+</script>
+</p>
+<p>
+<script type="text/python3">
+import beditor
+from browser import document
+url = "https://gist.githubusercontent.com/41023125/0ea70a5f5ba83f806e102d91f4e14a7c/raw/b8e715e81485800cf2a3081e61d953a9d169aa09/final1"
+src = open(url).read()
+final1 = beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
+document["final1"].bind("click",final1.prog)
+</script>
+</p>
+<p>
+<script type="text/python3">
+import beditor
+from browser import document
+url = "https://gist.githubusercontent.com/41023125/0495389a86d42dc904bcbf671f757549/raw/4c7a2e9fdc39d8720204d6c2699d72a0f11e2ff2/final2"
+src = open(url).read()
+final2 = beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
+document["final2"].bind("click",final2.prog)
 </script>
 </p>
 <p><!-- 用來顯示程式碼的 editor 區域 --></p>
@@ -1676,16 +1696,16 @@ document["selfgame"].bind("click",selfgame.prog)
 <p></p>
 <!-- 執行與清除按鈕開始 -->
 <p><button id="kw_run">Run</button> <button id="kw_show_console">Output</button> <button id="kw_clear_console">清除輸出區</button><button id="clear_bd">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
-<p><button id="add1to10">列出10個座標</button> <button id="asd">在方格上標出10個座標</button> <button id="zxc">方塊隨機出現</button></p>
-<p><button id="w13">snake</button></p>
+<p><button id="add1to10">列出10個座標</button> <button id="asd">在方格上標出10個座標</button> <button id="zxc">方塊隨機出現</button> <button id="w13">snake</button></p>
 <p><button id="selfgame">戰機遊戲</button></p>
+<p><button id="final1">final1</button> <button id="final2">final2</button></p>
 <!-- 執行與清除按鈕結束 -->
 <p></p>
 <!-- 程式執行 ouput 區 -->
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console"></textarea></div>
 <!-- Brython 程式執行的結果, 都以 brython_div 作為切入位置 -->
 <div id="brython_div"></div>
-<p></p><h2>建立倉儲</h2>
+<p><a href="https://www.youtube.com/playlist?list=PLgrxSD1DX5E3HRzkN55oyZVaTvB36EbZV">final製作全過程 - YouTube</a></p><h2>建立倉儲</h2>
 <p _msthash="170586" _msttexthash="31396924">建立並登錄<a href="https://github.com/">GitHub</a>帳號</p>
 <p _msthash="170586" _msttexthash="35491638">前往<a href="https://github.com/mdecourse/cp2021_hw">mdecourse/cp2021_hw: 計算機程式課程 2021 Fall 作業 網站 template (github.com)</a>.</p>
 <p _msthash="170586" _msttexthash="35491638">點選<a href="https://github.com/mdecourse/cp2021_hw/generate">Use this template</a>(Create a new repository from cp2021_hw)</p>
