@@ -128,7 +128,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='Examples.html'>Examples</a><li><a href='portable_hybrid.html'>portable_hybrid</a><li><a href='run.html'>run</a><li><a href='runsrc.html'>runsrc</a><li><a href='SSH.html'>SSH</a><li><a href='Network.html'>Network</a></li></ul><li class='has-children'><a href='Exam.html'>Exam</a><ul class='dropdown'><li><a href='w13.html'>w13</a></li></ul><li class='has-children'><a href='HW1.html'>HW1</a><ul class='dropdown'><li><a href='HW1-1.html'>HW1-1</a><li><a href='HW1-2.html'>HW1-2</a><li><a href='Token.html'>Token</a><li class='has-children'><a href='SSH push.html'>SSH push</a><ul class='dropdown'><li><a href='GitExtensions.html'>GitExtensions</a></li></li></ul></ul><li class='has-children'><a href='HW2.html'>HW2</a><ul class='dropdown'><li><a href='Python.html'>Python</a><li><a href='run1.html'>run1</a><li><a href='run2.html'>run2</a><li><a href='run3.html'>run3</a></li></ul><li><a href='Server.html'>Server</a><li class='has-children'><a href='HW3.html'>HW3</a><ul class='dropdown'><li><a href='manual_snake.html'>manual_snake</a><li><a href='Snake.html'>Snake</a><li><a href='自製遊戲.html'>自製遊戲</a><li><a href='Algorithms.html'>Algorithms</a><li><a href='ML in Brython.html'>ML in Brython</a></li></ul><li class='has-children'><a href='notes.html'>notes</a><ul class='dropdown'><li><a href='41023125.html'>41023125</a><li><a href='建立倉儲.html'>建立倉儲</a><li><a href='Personal access tokens(碼牌).html'>Personal access tokens(碼牌)</a><li><a href='建立w11_1a倉儲.html'>建立w11_1a倉儲</a><li class='has-children'><a href='指令.html'>指令</a><ul class='dropdown'><li><a href='cmd.html'>cmd</a><li><a href='html.html'>html</a><li><a href='程式.html'>程式</a></li></li></ul></ul><li><a href='Final Project.html'>Final Project</a></li>
+                     <li class='has-children'><a href='About.html'>About</a><ul class='dropdown'><li><a href='Examples.html'>Examples</a><li><a href='portable_hybrid.html'>portable_hybrid</a><li><a href='run.html'>run</a><li><a href='runsrc.html'>runsrc</a><li><a href='SSH.html'>SSH</a><li><a href='Network.html'>Network</a></li></ul><li><a href='期末考試.html'>期末考試</a><li class='has-children'><a href='Exam.html'>Exam</a><ul class='dropdown'><li><a href='w13.html'>w13</a></li></ul><li class='has-children'><a href='HW1.html'>HW1</a><ul class='dropdown'><li><a href='HW1-1.html'>HW1-1</a><li><a href='HW1-2.html'>HW1-2</a><li><a href='Token.html'>Token</a><li class='has-children'><a href='SSH push.html'>SSH push</a><ul class='dropdown'><li><a href='GitExtensions.html'>GitExtensions</a></li></li></ul></ul><li class='has-children'><a href='HW2.html'>HW2</a><ul class='dropdown'><li><a href='Python.html'>Python</a><li><a href='run1.html'>run1</a><li><a href='run2.html'>run2</a><li><a href='run3.html'>run3</a></li></ul><li><a href='Server.html'>Server</a><li class='has-children'><a href='HW3.html'>HW3</a><ul class='dropdown'><li><a href='manual_snake.html'>manual_snake</a><li><a href='Snake.html'>Snake</a><li><a href='自製遊戲.html'>自製遊戲</a><li><a href='Algorithms.html'>Algorithms</a><li><a href='ML in Brython.html'>ML in Brython</a></li></ul><li class='has-children'><a href='notes.html'>notes</a><ul class='dropdown'><li><a href='41023125.html'>41023125</a><li><a href='建立倉儲.html'>建立倉儲</a><li><a href='Personal access tokens(碼牌).html'>Personal access tokens(碼牌)</a><li><a href='建立w11_1a倉儲.html'>建立w11_1a倉儲</a><li class='has-children'><a href='指令.html'>指令</a><ul class='dropdown'><li><a href='cmd.html'>cmd</a><li><a href='html.html'>html</a><li><a href='程式.html'>程式</a></li></li></ul></ul><li><a href='Final Project.html'>Final Project</a></li>
                       </ul>
                 </nav>
               </div>
@@ -188,7 +188,7 @@ def run():
     try:
         url = doc.query["src"]
     except:
-        url = "https://gist.githubusercontent.com/41023125/1fdd74f7a5c1eddb2acdbac594b52bd2/raw/5abc9815e3d49e2a152499ac9e88ad945a5371f7/hw3"
+       url ="https://gist.githubusercontent.com/41023125/1fdd74f7a5c1eddb2acdbac594b52bd2/raw/ca589bacb57528e39e7834d4f8feebedf535fe0f/hw3"
     prog = open(url).read()
 
     # 將程式載入編輯區
@@ -199,7 +199,7 @@ def run():
     #ns = {'__name__':'__main__'}
     #exec(prog, ns)
     # 按下 run 按鈕
-    #Ace.run()
+    Ace.run()
 
 # 執行程式, 顯示輸出結果與清除輸出結果及對應按鈕綁定
 doc['kw_run'].bind('click', Ace.run)
@@ -222,7 +222,8 @@ run()
 <!-- 程式執行 ouput 區 -->
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console"></textarea></div>
 <!-- Brython 程式執行的結果, 都以 brython_div 作為切入位置 -->
-<br />manual_snake << <a href='manual_snake.html'>Previous</a> <a href='自製遊戲.html'>Next</a> >> 自製遊戲</div>
+<div id="brython_div"></div>
+<p></p><br />manual_snake << <a href='manual_snake.html'>Previous</a> <a href='自製遊戲.html'>Next</a> >> 自製遊戲</div>
         
     <!-- footer -->
       <div class="container">
