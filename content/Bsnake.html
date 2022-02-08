@@ -2,7 +2,7 @@
         <head>
         <title>cp2021 homework site</title>
         <meta charset="utf-8">
-<meta property="head" content="H2">
+<meta property="head" content="H1">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -139,9 +139,111 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">建立倉儲 << <a href='建立倉儲.html'>Previous</a> <a href='建立w11_1a倉儲.html'>Next</a> >> 建立w11_1a倉儲<br /><h1>Personal access tokens(碼牌)</h1>
-<p>打開github帳號點選右上頭像並點選Settings<br/>點選Developer settings<br/>點選Personal access tokens<br/>點選<a href="https://github.com/settings/tokens/new">Generate new token</a><br/>Note (任意)<br/>打勾repo(第一個)<br/>點選最下面的Generate token<br/>複製產生出來的token<br/>打開可攜系統<br/>打開要設Personal access tokens的資料夾<br/>點開.git(要開隱藏項目才看的到)<br/>將裡面的congif拉到SciTE(球球)<br/>將複製的字串貼在github.com的前面再加上@並存檔(CTRL+S)<br/>這樣Personal access tokens就設定完成</p>
-<br />建立倉儲 << <a href='建立倉儲.html'>Previous</a> <a href='建立w11_1a倉儲.html'>Next</a> >> 建立w11_1a倉儲</div>
+    <div id="tipue_search_content">期末考試 << <a href='期末考試.html'>Previous</a> <a href='Exam.html'>Next</a> >> Exam<br /><h1>Bsnake</h1>
+<!-- 導入 brython 程式庫 -->
+<script src="./../cmsimde/static/brython.js"></script>
+<script src="./../cmsimde/static/brython_stdlib.js"></script>
+<!-- 啟動 Brython -->
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+<p><!-- 導入 FileSaver 與 filereader --></p>
+<p>
+<script src="./../cmsimde/static/ace/FileSaver.min.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/filereader.js" type="text/javascript"></script>
+</p>
+<p><!-- 導入 ace --></p>
+<p>
+<script src="./../cmsimde/static/ace/ace.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/ext-language_tools.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/mode-python3.js" type="text/javascript"></script>
+<script src="./../cmsimde/static/ace/snippets/python.js" type="text/javascript"></script>
+</p>
+<p><!-- 請注意, 這裡使用 Javascript 將 localStorage["py_src"] 中存在近端瀏覽器的程式碼, 由使用者決定存檔名稱--></p>
+<p>
+<script type="text/javascript">
+function doSave(storage_id, filename){
+    var blob = new Blob([localStorage[storage_id]], {type: "text/plain;charset=utf-8"});
+    filename = document.getElementById(filename).value
+    saveAs(blob, filename+".py");
+}
+</script>
+</p>
+<p><!-- 印出版次與關鍵字程式 --></p>
+<p>
+<script type="text/python3">
+from browser import document as doc
+import ace
+# 清除畫布
+def clear_bd(ev):
+    bd = doc["brython_div"]
+    bd.clear()
+# Brython 3.3.4 內建的 container 名稱為  'container' 且 turtle 輸出為 svg 必須使用 div 訂定 id
+Ace = ace.Editor(editor_id="kw_editor", console_id="kw_console", container_id="kw__container", storage_id="kw_py_src" )
+# 從 gist 取出程式碼後, 放入 editor 作為 default 程式
+def run():
+    # 利用 get 取下 src 變數值
+    try:
+        url = doc.query["src"]
+    except:
+       url ="https://gist.githubusercontent.com/41023125/1ec1a32b7b8f83288b4c54e098d4b66b/raw/c262d8259c728b94def18661ae0b13905c0fd5df/BSnake"
+    prog = open(url).read()
+
+    # 將程式載入編輯區
+    Ace.editor.setValue(prog)
+    Ace.editor.scrollToRow(0)
+    Ace.editor.gotoLine(0)
+    # 直接執行程式
+    #ns = {'__name__':'__main__'}
+    #exec(prog, ns)
+    # 按下 run 按鈕
+    Ace.run()
+
+# 執行程式, 顯示輸出結果與清除輸出結果及對應按鈕綁定
+doc['kw_run'].bind('click', Ace.run)
+doc['kw_show_console'].bind('click', Ace.show_console)
+doc['kw_clear_console'].bind('click', Ace.clear_console)
+doc['clear_bd'].bind('click', clear_bd)
+# 呼叫函式執行
+run()
+</script>
+</p>
+<p>
+<script type="text/python3">
+import beditor
+from browser import document
+url = "https://gist.githubusercontent.com/41023125/1ec1a32b7b8f83288b4c54e098d4b66b/raw/c262d8259c728b94def18661ae0b13905c0fd5df/BSnake"
+src = open(url).read()
+Bsnake= beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
+document["Bsnake"].bind("click", Bsnake.prog)
+</script>
+</p>
+<p>
+<script type="text/python3">
+import beditor
+from browser import document
+url = "https://gist.githubusercontent.com/41023125/377139b2a18f282551c732e2b916521d/raw/14501fa79b2b3877607ce538c961a0298893ed80/Bsnake%2520%2520wall%25201"
+src = open(url).read()
+wall1= beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
+document["wall1"].bind("click", wall1.prog)
+</script>
+</p>
+<p><!-- 用來顯示程式碼的 editor 區域 --></p>
+<div id="kw_editor" style="width: 600px; height: 300px;"></div>
+<p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
+<!-- 存擋表單開始 --><form><label>Filename: <input id="kw_filename" placeholder="input file name" type="text"/>.py</label> <input onclick="doSave('kw_py_src', 'kw_filename');" type="submit" value="Save"/></form><!-- 存擋表單結束 -->
+<p></p>
+<!-- 執行與清除按鈕開始 -->
+<p><button id="kw_run">Run</button> <button id="kw_show_console">Output</button> <button id="kw_clear_console">清除輸出區</button><button id="clear_bd">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
+<p><button id="Bsnake">Bsnake</button> <button id="wall1">wall-1</button></p>
+<p><!-- 執行與清除按鈕結束 --></p>
+<p></p>
+<p><!-- 程式執行 ouput 區 --></p>
+<div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console"></textarea></div>
+<p><!-- Brython 程式執行的結果, 都以 brython_div 作為切入位置 --></p>
+<div id="brython_div"></div><br />期末考試 << <a href='期末考試.html'>Previous</a> <a href='Exam.html'>Next</a> >> Exam</div>
         
     <!-- footer -->
       <div class="container">
