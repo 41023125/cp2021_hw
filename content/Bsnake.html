@@ -224,10 +224,20 @@ document["Bsnake"].bind("click", Bsnake.prog)
 <script type="text/python3">
 import beditor
 from browser import document
-url = "https://gist.githubusercontent.com/41023125/377139b2a18f282551c732e2b916521d/raw/14501fa79b2b3877607ce538c961a0298893ed80/Bsnake%2520%2520wall%25201"
+url = "https://gist.githubusercontent.com/41023125/377139b2a18f282551c732e2b916521d/raw/4adbb4360f2aa66591528f74c53e1e093b14662c/Bsnake%2520%2520wall%25201"
 src = open(url).read()
 wall1= beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
 document["wall1"].bind("click", wall1.prog)
+</script>
+</p>
+<p>
+<script type="text/python3">
+import beditor
+from browser import document
+url = "https://gist.githubusercontent.com/41023125/377139b2a18f282551c732e2b916521d/raw/4adbb4360f2aa66591528f74c53e1e093b14662c/Bsnake%2520%2520wall%25202"
+src = open(url).read()
+wall2= beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
+document["wall2"].bind("click", wall2.prog)
 </script>
 </p>
 <p><!-- 用來顯示程式碼的 editor 區域 --></p>
@@ -237,7 +247,7 @@ document["wall1"].bind("click", wall1.prog)
 <p></p>
 <!-- 執行與清除按鈕開始 -->
 <p><button id="kw_run">Run</button> <button id="kw_show_console">Output</button> <button id="kw_clear_console">清除輸出區</button><button id="clear_bd">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
-<p><button id="Bsnake">Bsnake</button> <button id="wall1">wall-1</button></p>
+<p><button id="Bsnake">Bsnake</button> <button id="wall1">wall-1</button> <button id="wall2">wall-2</button></p>
 <p><!-- 執行與清除按鈕結束 --></p>
 <p></p>
 <p><!-- 程式執行 ouput 區 --></p>

@@ -554,10 +554,10 @@ run()
 <script type="text/python3">
 import beditor
 from browser import document
-url = "https://gist.githubusercontent.com/Lujay030/e44697e2d85f2e371388a0d3cb019bc9/raw/cf40f9ae33966d2187487a596f160c6415695eda/w13%2520exam"
+url = "https://gist.githubusercontent.com/41023125/1ec1a32b7b8f83288b4c54e098d4b66b/raw/c262d8259c728b94def18661ae0b13905c0fd5df/BSnake"
 src = open(url).read()
-w13 = beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
-document["w13"].bind("click", w13.prog)
+Bsnake= beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
+document["Bsnake"].bind("click", Bsnake.prog)
 </script>
 </p>
 <p>
@@ -570,6 +570,16 @@ wall1= beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_sr
 document["wall1"].bind("click", wall1.prog)
 </script>
 </p>
+<p>
+<script type="text/python3">
+import beditor
+from browser import document
+url = "https://gist.githubusercontent.com/41023125/377139b2a18f282551c732e2b916521d/raw/379004b391b44ff121fcaf04f3fb4e720e16c88b/Bsnake%2520%2520wall%25202"
+src = open(url).read()
+wall2= beditor.editor(src, "kw_editor", "kw_console", "kw__container", "kw_py_src")
+document["wall2"].bind("click", wall2.prog)
+</script>
+</p>
 <p><!-- 用來顯示程式碼的 editor 區域 --></p>
 <div id="kw_editor" style="width: 600px; height: 300px;"></div>
 <p><!-- 以下的表單與按鈕與前面的 Javascript doSave 函式以及 FileSaver.min.js 互相配合 --></p>
@@ -577,7 +587,7 @@ document["wall1"].bind("click", wall1.prog)
 <p></p>
 <!-- 執行與清除按鈕開始 -->
 <p><button id="kw_run">Run</button> <button id="kw_show_console">Output</button> <button id="kw_clear_console">清除輸出區</button><button id="clear_bd">清除繪圖區</button><button onclick="window.location.reload()">Reload</button></p>
-<p><button id="w13">列出 10 個座標</button> <button id="wall1">wall-1</button></p>
+<p><button id="Bsnake">Bsnake</button> <button id="wall1">wall-1</button> <button id="wall2">wall-2</button></p>
 <p><!-- 執行與清除按鈕結束 --></p>
 <p></p>
 <p><!-- 程式執行 ouput 區 --></p>
